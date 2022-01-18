@@ -7,31 +7,7 @@ class TeacherPage extends StatefulWidget {
 }
 
 class _TeacherPageState extends State<TeacherPage> {
-  TextEditingController _textFieldController = TextEditingController();
 
-  _displayDialog(BuildContext context) async {
-    return showDialog(
-        context: context,
-        builder: (context) {
-          return AlertDialog(
-            title: Text('Wiadomość'),
-            content: TextField(
-              controller: _textFieldController,
-              textInputAction: TextInputAction.go,
-              keyboardType: TextInputType.numberWithOptions(),
-              decoration: InputDecoration(hintText: "Zostaw wiadomość dla nauczyciela"),
-            ),
-            actions: <Widget>[
-              new FlatButton(
-                child: new Text('Wyślij'),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-              )
-            ],
-          );
-        });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -102,12 +78,14 @@ class _TeacherPageState extends State<TeacherPage> {
                       Text("Janusz", style: TextStyle(
                           fontSize: 21,
                           fontWeight: FontWeight.w700,
+                          fontFamily: 'product'
                       ),),
                       SizedBox(height: 5,),
                       Text("Nauczyciel hiszpańskiego", style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w500,
                           color: darkBlue,
+                          fontFamily: 'circe'
                       ),),
                       SizedBox(height: 15,),
                       Row(
@@ -125,11 +103,31 @@ class _TeacherPageState extends State<TeacherPage> {
                           ),
                           SizedBox(width: 5,),
                           Text("4.9 Ocena", style: TextStyle(
+                              fontFamily: 'circe'
                           ),)
                         ],
                       ),
                       SizedBox(height: 10,),
-                      
+                      Row(
+                        children: [
+                          Container(
+                            height: 20,
+                            width: 20,
+                            child: RotatedBox(
+                              quarterTurns: 2,
+                              child: Icon(
+                                Icons.star,
+                                color: darkBlue,
+                              ),
+                            ),
+                          ),
+                          SizedBox(width: 5,),
+                          Text("4.9 Ocena", style: TextStyle(
+                              fontFamily: 'circe'
+                          ),)
+                        ],
+                      ),
+
                     ],
                   ),
                 ),
@@ -151,12 +149,14 @@ class _TeacherPageState extends State<TeacherPage> {
                       Text("O mnie", style: TextStyle(
                           fontWeight: FontWeight.w700,
                           fontSize: 17,
+                          fontFamily: 'product'
                       ),),
                       SizedBox(height: 10,),
                       Text(
                         "Od 10 lat zajmuję się nauką hiszpańskiego, moje skuteczne metody edukacji (pasek i drewniana linijka) sprawią, że dziecko bez problemu zaliczy każdy sprawdzian.",
                         style: TextStyle(
-                          fontSize: 15,
+                          fontFamily: 'circe',
+                          fontSize: 12,
                         ),),
                     ],
                   ),
@@ -164,16 +164,28 @@ class _TeacherPageState extends State<TeacherPage> {
             ),
           ),
           Container(
+            color: Colors.white,
+            child: Container(
+              width: MediaQuery
+                  .of(context)
+                  .size
+                  .width,
+              padding: EdgeInsets.all(15),
+              margin: EdgeInsets.only(bottom: 20, right: 30, left: 30),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                  color: darkBlue
+              ),
               child: Center(
-                child: RaisedButton(
-                  child: Text('Poproś o kontakt',style: TextStyle(color: Colors.blue,
-                      fontFamily: 'circe',
-                      fontWeight: FontWeight.w700,
-                      fontSize: 18),),
-                  onPressed: () => _displayDialog(context),
-                ),
+                child: Text("Poproś o kontakt", style: TextStyle(
+                    color: Colors.white,
+                    fontFamily: 'circe',
+                    fontWeight: FontWeight.w700,
+                    fontSize: 18
+                ),),
               ),
             ),
+          )
         ],
       ),
     );

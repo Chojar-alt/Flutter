@@ -32,25 +32,6 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           children: [
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 20),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text("Gokids.COM", style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w500,
-                      fontFamily: 'circe'
-                  ),),
-                  Text("Skip", style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w500,
-                      fontFamily: 'circe'
-                  ),)
-                ],
-              ),
-            ),
-            SizedBox(height: 30,),
-            Container(
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height*0.4,
               decoration: BoxDecoration(
@@ -64,19 +45,12 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Text("WHERE KIDS LOVE LEARNING",style: TextStyle(
+                  Text("TUTAJ ZNAJDZIESZ NAJLEPSZEGO NAUCZYCIELA",style: TextStyle(
                       fontSize: 12,
-                      fontFamily: 'circe'
                   ),),
-                  Text("Distant Learning & Home \nSchooling Made Easy",style: TextStyle(
+                  Text("SZYBKO, TANIO,  BEZPIECZNIE \n ŁATWO",style: TextStyle(
                       fontSize: 26,
                       fontWeight: FontWeight.w700,
-                      fontFamily: 'circe'
-                  ),textAlign: TextAlign.center,),
-                  Text("Book Filtered Top Rated Professional \nTutors from the comfort \nOf your home in just a few clicks",style: TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.w300,
-                      fontFamily: 'circe'
                   ),textAlign: TextAlign.center,),
                   Center(
                     child: Container(

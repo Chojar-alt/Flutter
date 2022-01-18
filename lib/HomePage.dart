@@ -48,28 +48,18 @@ class _homePageState extends State<homePage> {
           Container(
             height: MediaQuery.of(context).size.height*0.3,
             width: MediaQuery.of(context).size.width,
-            decoration: BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage("asset/images/searchBg.png")
-                )
-            ),
             child: Container(
               padding: EdgeInsets.all(20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Hello", style: TextStyle(
+                  Text("Witaj", style: TextStyle(
                       fontSize: 16,
-                      fontFamily: 'circe'
                   ),),
-                  Text("John Scott", style: TextStyle(
+                  Text("Matusz", style: TextStyle(
                       fontSize: 30,
-                      fontFamily: 'circe',
                       fontWeight: FontWeight.w700
                   ),),
-                  Expanded(
-                      child: Container()
-                  ),
                   Container(
                     height: 70,
                     decoration: BoxDecoration(
@@ -89,11 +79,10 @@ class _homePageState extends State<homePage> {
                           child: TextField(
                             style: TextStyle(
                                 fontSize: 18,
-                                fontFamily: 'circe'
                             ),
                             decoration: InputDecoration(
                                 border: InputBorder.none,
-                                hintText: "Search for Courses or Tutors"
+                                hintText: "Znajdź swojego korepetytora"
                             ),
                           ),
                         ),
@@ -115,23 +104,20 @@ class _homePageState extends State<homePage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Top Rated Tutors", style: TextStyle(
+                      Text("Nasi nauczyciele", style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w600
                       ),),
-                      Text("See all", style: TextStyle(
-                          color: Colors.blueAccent,
-                          fontSize: 13
-                      ),)
                     ],
                   ),
                   Expanded(
                     child: SingleChildScrollView(
                       child: Column(
                         children: [
-                          tutorWidget("boy1Big", "Mr. Pater Parker", "English", "0-6", "150"),
-                          tutorWidget("girl", "Ms. Leena Dey", "Arts & Crafts", "0-4", "100"),
-                          tutorWidget("boy2", "Mr. Jason Shrute", "Math", "0-2", "100"),
+                          tutorWidget("boy1", "Janusz", "Hiszpański", "150"),
+                          tutorWidget("girl", "Ola", "Polski", "130"),
+                          tutorWidget("boy2", "Kamil", "Angieslki", "100"),
+                          tutorWidget("boy2", "Paweł", "Matematyka", "200"),
                         ],
                       ),
                     ),
@@ -144,7 +130,7 @@ class _homePageState extends State<homePage> {
       ),
     );
   }
-  InkWell tutorWidget(String img, String name, String subj, String grade, String price)
+  InkWell tutorWidget(String img, String name, String subj, String price)
   {
     return InkWell(
       onTap: openTeacherPage,
@@ -166,10 +152,6 @@ class _homePageState extends State<homePage> {
                       height: 125,
                       width: 150,
                       decoration: BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage('asset/images/iconBgNew.png'),
-                              fit: BoxFit.contain
-                          )
                       ),
                     ),
                   ),
@@ -182,11 +164,11 @@ class _homePageState extends State<homePage> {
                           width: 60,
                           height: 60,
                           child: RotatedBox(
-                            quarterTurns: 2,
+                            quarterTurns: 3,
                             child: Icon(
                               Icons.star,
                               color: darkBlue,
-                              size: 60,
+                              size: 40,
                             ),
                           ),
                         ),
@@ -194,7 +176,7 @@ class _homePageState extends State<homePage> {
                           width: 60,
                           height: 60,
                           child: Center(
-                            child: Text("4.5", style: TextStyle(
+                            child: Text("5.0", style: TextStyle(
                                 fontSize: 10,
                                 fontWeight: FontWeight.w700,
                                 color: Colors.white
@@ -229,21 +211,12 @@ class _homePageState extends State<homePage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Text("GRADE $grade",style: TextStyle(
-                            fontSize: 10,
-                            color: Colors.grey
-                        ),)
-                      ],
-                    ),
                     SizedBox(height: 5,),
                     Text(name, style: TextStyle(
                         fontSize: 19,
                         fontWeight: FontWeight.w700
                     ),),
-                    Text('$subj Teacher', style: TextStyle(
+                    Text('Nauka: $subj', style: TextStyle(
                         fontSize: 13,
                         fontWeight: FontWeight.w500,
                         color: darkBlue
@@ -252,7 +225,7 @@ class _homePageState extends State<homePage> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text("\$$price/session",style: TextStyle(
+                          Text("\$$price zł/h",style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w500
                           ),)
